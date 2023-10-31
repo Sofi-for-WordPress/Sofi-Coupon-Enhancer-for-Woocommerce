@@ -5,7 +5,7 @@
  * A class definition that includes attributes and functions used across
  * Sofi Coupon Enhancer plugin
  *
- * @link       https://junaidbinjaman.com
+ * @link       https://github.com/junaidbinjaman/Sofi-Coupon-Enhancer-for-Woocommerce/
  * @since      1.0.0
  *
  * @package    Scew
@@ -15,8 +15,7 @@
 /**
  * The core plugin class.
  *
- * This is used to define internationalization, admin-specific hooks, and
- * public-facing site hooks.
+ * This is used to define internationalization, admin-specific hooks.
  *
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
@@ -60,8 +59,7 @@ class Scew {
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
-	 * Load the dependencies, define the locale, and set the hooks for the admin area and
-	 * the public-facing side of the site.
+	 * Load the dependencies, define the locale, and set the hooks for the admin area of the site.
 	 *
 	 * @since    1.0.0
 	 */
@@ -83,10 +81,10 @@ class Scew {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
+	 * - TGM Activation Library: Activates the required plugins.
 	 * - Scew_Loader. Orchestrates the hooks of the plugin.
 	 * - Scew_i18n. Defines internationalization functionality.
 	 * - Scew_Admin. Defines all hooks for the admin area.
-	 * - Scew_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
