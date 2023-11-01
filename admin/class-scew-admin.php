@@ -12,8 +12,9 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
+ * Defines the plugin name and version number.
+ * Defines a custom meta box in shop coupon edit page.
+ * Defines a custom column into shop order listing table
  *
  * @package    Scew
  * @subpackage Scew/admin
@@ -53,20 +54,15 @@ class Scew_Admin {
 	}
 
 	/**
-	 * Custom meta boxes
+	 * Add a custom meta box for Shop Coupons.
 	 *
-	 * The function bellow add custom meta boxes to different post type.
+	 * This function is responsible for adding a custom meta box to the WordPress admin interface
+	 * on the Shop Coupon edit screen. The meta box displays a list of orders that were placed
+	 * using the current coupon.
 	 *
-	 * @return void
+	 * @since 1.0.0
 	 */
 	public function scew_meta_boxes() {
-		/**
-		 * Shop coupon meta box.
-		 *
-		 * The meta box is attached with shop coupon page.
-		 * It list orders which are placed using current coupon.
-		 */
-
 		require_once plugin_dir_path( __FILE__ ) . 'partials/class-scew-order-list.php';
 
 		$order_list = new Scew_Order_List();
@@ -75,29 +71,34 @@ class Scew_Admin {
 	}
 
 	/**
-	 * Adds a new column into order list
+	 * Adds a new column to the order list table.
 	 *
-	 * The new column displays the used coupon.
+	 * This function extends the table columns in the order list to include a new column
+	 * that displays the used coupon for each order.
 	 *
-	 * @param array $columns table columns.
-	 * @return array
+	 * @param array $columns Existing table columns.
+	 * @return array The modified table columns with the new 'Used Coupon' column.
 	 */
 	public function custom_order_column( $columns ) {
 		$new_columns = array();
 
 		foreach ( $columns as $key => $value ) {
-			if ( 'order_total' === $key ) {
+			if ( 'order_status' === $key ) {
 				$new_columns['used_coupon'] = 'Used Coupon';
 			}
 			$new_columns[ $key ] = $value;
 		}
+
 		return $new_columns;
 	}
 
 	/**
-	 * Display coupon data into the new column.
+	 * Display coupon data in the custom 'Used Coupon' column.
 	 *
-	 * @param array $column column keys.
+	 * This function is responsible for populating the custom 'Used Coupon' column
+	 * in the order list with the coupon codes used for each order.
+	 *
+	 * @param string $column The column key being processed.
 	 * @return void
 	 */
 	public function custom_order_column_content( $column ) {

@@ -1,8 +1,8 @@
 <?php
 /**
- * Order list table class
+ * Order List Table Class
  *
- * This file is used to list sorted orders on table.
+ * This file is used to display a sorted list of orders in a table format.
  *
  * @link       https://supporthost.com/wp-list-table-tutorial/
  * @since      1.0.0
@@ -12,19 +12,19 @@
  */
 
 /**
- * List sorted orders on WP Table
+ * List Sorted Orders on WordPress Table
  */
 class Scew_Order_List_Table extends WP_List_Table {
 
 	/**
-	 * Table data holder
+	 * Table Data Holder
 	 *
 	 * @var array
 	 */
 	private $table_data;
 
 	/**
-	 * Table column
+	 * Table Columns
 	 *
 	 * @return array
 	 */
@@ -39,12 +39,12 @@ class Scew_Order_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * Prepare table items
+	 * Prepare Table Items
 	 *
 	 * @return void
 	 */
 	public function prepare_items() {
-		// data.
+		// Get data.
 		$this->table_data = $this->get_table_data();
 
 		$columns               = $this->get_columns();
@@ -59,7 +59,7 @@ class Scew_Order_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * Manage table data
+	 * Manage Table Data
 	 *
 	 * @return array
 	 */
@@ -88,10 +88,10 @@ class Scew_Order_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * Show data in the column
+	 * Show Data in the Column
 	 *
-	 * @param object $item orders data.
-	 * @param string $column_name column name.
+	 * @param object $item Order data.
+	 * @param string $column_name Column name.
 	 * @return string
 	 */
 	public function column_default( $item, $column_name ) {
@@ -114,24 +114,22 @@ class Scew_Order_List_Table extends WP_List_Table {
 	}
 
 	/**
-	 * Display the table navigation.
+	 * Display the Table Navigation.
 	 *
-	 * @param string $which sdfsdf.
+	 * @param string $which Navigation location (top/bottom).
 	 */
 	protected function display_tablenav( $which ) {
 		if ( 'top' === $which ) {
 			printf( 'Total number of orders %s', count( $this->table_data ) );
 			$this->fix_usage_count();
 		}
-		?>
-		<?php
 	}
 
 	/**
-	 * Fix wrong usage count
+	 * Fix Wrong Usage Count
 	 *
-	 * The function compare number of elements in the row with
-	 * usage count saved in the database. If doesn't match, it updates the usage count with elements count
+	 * Compares the number of elements in the row with
+	 * the usage count saved in the database. If they don't match, it updates the usage count with the elements count.
 	 *
 	 * @return void
 	 */

@@ -133,7 +133,7 @@ class Scew {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Scew_i18n();
+		$plugin_i18n = new Scew_I18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 	}

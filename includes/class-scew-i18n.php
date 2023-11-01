@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Define the internationalization functionality
  *
@@ -24,7 +23,7 @@
  * @subpackage Scew/includes
  * @author     Junaid Bin Jaman <me@junaidbinjaman.com>
  */
-class Scew_i18n {
+class Scew_I18n {
 
 
 	/**
@@ -39,9 +38,5 @@ class Scew_i18n {
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
-
 	}
-
-
-
 }
