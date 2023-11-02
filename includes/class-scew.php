@@ -12,8 +12,6 @@
  * @subpackage Scew/includes
  */
 
-use Automattic\WooCommerce\Utilities\OrderUtil;
-
 /**
  * The core plugin class.
  *
@@ -69,7 +67,7 @@ class Scew {
 		if ( defined( 'SCEW_VERSION' ) ) {
 			$this->version = SCEW_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.0.1';
 		}
 		$this->plugin_name = 'scew';
 

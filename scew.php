@@ -8,7 +8,7 @@
  * that starts the plugin.
  *
  * @link              https://junaidbinjaman.com
- * @since             1.0.0
+ * @since             1.0.1
  * @package           Scew
  *
  * @wordpress-plugin
@@ -60,6 +60,7 @@ register_deactivation_hook( __FILE__, 'deactivate_scew' );
  *
  * The function checks whether the website is using hpos or not
  *
+ * @since 1.0.1
  * @return void
  */
 function scew_hpos_checker() {
