@@ -12,6 +12,8 @@
  * @subpackage Scew/includes
  */
 
+use Automattic\WooCommerce\Utilities\OrderUtil;
+
 /**
  * The core plugin class.
  *
@@ -150,8 +152,15 @@ class Scew {
 		$plugin_admin = new Scew_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'scew_meta_boxes' );
-		$this->loader->add_filter( 'manage_edit-shop_order_columns', $plugin_admin, 'custom_order_column' );
-		$this->loader->add_action( 'manage_shop_order_posts_custom_column', $plugin_admin, 'custom_order_column_content' );
+
+		// Check Whether the HPOS enabled or not.
+		if ( ! get_option( 'is_hpos_enabled' ) ) {
+			$this->loader->add_filter( 'manage_edit-shop_order_columns', $plugin_admin, 'custom_order_column' );
+			$this->loader->add_action( 'manage_shop_order_posts_custom_column', $plugin_admin, 'custom_order_column_content' );
+		} else {
+			$this->loader->add_filter( 'woocommerce_shop_order_list_table_columns', $plugin_admin, 'custom_order_column' );
+			$this->loader->add_action( 'woocommerce_shop_order_list_table_custom_column', $plugin_admin, 'hpos_custom_order_column_content', 10, 2 );
+		}
 	}
 
 	/**

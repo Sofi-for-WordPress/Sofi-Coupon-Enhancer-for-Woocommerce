@@ -56,6 +56,26 @@ register_activation_hook( __FILE__, 'activate_scew' );
 register_deactivation_hook( __FILE__, 'deactivate_scew' );
 
 /**
+ * HPOS checker
+ *
+ * The function checks whether the website is using hpos or not
+ *
+ * @return void
+ */
+function scew_hpos_checker() {
+	if ( class_exists( 'Automattic\WooCommerce\Utilities\OrderUtil' ) ) {
+		if ( Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled() ) {
+			update_option( 'is_hpos_enabled', true );
+		} else {
+			// Traditional CPT-based orders are in use.
+			update_option( 'is_hpos_enabled', false );
+		}
+	}
+}
+
+add_action( 'plugins_loaded', 'scew_hpos_checker' );
+
+/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks.
  */
