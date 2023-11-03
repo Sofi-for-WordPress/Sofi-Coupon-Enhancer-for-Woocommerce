@@ -30,7 +30,7 @@ class Scew_Order_List_Table extends WP_List_Table {
 	 */
 	public function get_columns() {
 		$columns = array(
-			'name'   => __( 'Name', 'scew' ),
+			'order'   => __( 'Name', 'scew' ),
 			'status' => __( 'Status', 'scew' ),
 			'total'  => __( 'Total', 'scew' ),
 			'date'   => __( 'Date', 'scew' ),
@@ -96,10 +96,12 @@ class Scew_Order_List_Table extends WP_List_Table {
 	 */
 	public function column_default( $item, $column_name ) {
 		switch ( $column_name ) {
-			case 'name':
-				$first_name = $item->get_billing_first_name();
-				$last_name  = $item->get_billing_last_name();
-				return $first_name . ' ' . $last_name;
+			case 'order':
+				$order_id = $item->get_id();
+                $order_url = admin_url( 'admin.php?page=wc-orders&action=edit&id=' . $order_id );
+                $first_name = $item->get_billing_first_name();
+                $last_name  = $item->get_billing_last_name();
+                return sprintf( '<a href="%s">#%s %s %s</a>', $order_url, $order_id, $first_name, $last_name );
 			case 'status':
 				return ucwords( $item->get_status() );
 			case 'total':
