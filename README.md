@@ -1,7 +1,5 @@
 # Sofi Coupon Enhancer Plugin
 
-![Sofi Coupon Enhancer](https://your-plugin-image-url.com)
-
 The Sofi Coupon Enhancer Plugin is a powerful tool designed to enhance the functionality of your WordPress WooCommerce store. This plugin provides three key features to make managing coupons and orders more efficient and convenient.
 
 ## Features
