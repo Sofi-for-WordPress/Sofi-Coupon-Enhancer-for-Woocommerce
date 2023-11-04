@@ -110,4 +110,22 @@ class Scew_Admin {
 			echo esc_html( strtoupper( implode( ', ', $coupons ) ) );
 		}
 	}
+
+	/**
+	 * Display coupon data in the custom 'Used Coupon' column.
+	 *
+	 * This function is responsible for populating the custom 'Used Coupon' column
+	 * in the order list with the coupon codes used for each order.
+	 *
+	 * @param string $column The column key being processed.
+	 * @param  object $order the order object.
+	 * @return void
+	 */
+	public function hpos_custom_order_column_content( $column, $order ) {
+
+		if ( 'used_coupon' === $column ) {
+			$coupons = $order->get_coupon_codes();
+			echo esc_html( strtoupper( implode( ', ', $coupons ) ) );
+		}
+	}
 }
