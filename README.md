@@ -30,7 +30,7 @@ To install the Sofi Coupon Enhancer Plugin, follow these steps:
 ## Changelog
 
 ### Version 1.0.1
-- Fixed an issue where the "Used Coupon" column in the order list table was not visible on websites with hPOS ([High-Performance Order Storage](https://woo.com/document/high-performance-order-storage/)) enabled.
+- Fixed an issue where the "Used Coupon" column in the order list table was not visible on websites with HPOS ([High-Performance Order Storage](https://woo.com/document/high-performance-order-storage/)) enabled.
 
 ### Version 1.0.0
 - Initial release of the Sofi Coupon Enhancer Plugin.
