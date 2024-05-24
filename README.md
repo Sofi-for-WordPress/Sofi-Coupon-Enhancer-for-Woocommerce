@@ -20,7 +20,7 @@ The Sofi Coupon Enhancer Plugin also enhances your order management capabilities
 
 ## Installation
 
-To install the Sofi Coupon Enhancer Plugin, follow these steps:
+Installation is as simple as it gets:
 
 1. Download the plugin ZIP file from the [plugin page](https://github.com/junaidbinjaman/Sofi-Coupon-Enhancer-for-Woocommerce/archive/refs/heads/main.zip).
 2. Log in to your WordPress admin panel.
@@ -28,6 +28,8 @@ To install the Sofi Coupon Enhancer Plugin, follow these steps:
 4. Click the **Upload Plugin** button.
 5. Choose the downloaded ZIP file and click **Install Now**.
 6. Activate the plugin through the **Plugins** menu in WordPress.
+
+No additional configuration is needed. It's a plugin-and-go system!
 
 ## Changelog
 
